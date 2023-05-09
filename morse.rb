@@ -36,3 +36,19 @@
   "----." => "9",
   "-----" => "0"
 }
+
+# Decode Morse code string
+def decode_morse(morse_str)
+  words = morse_str.split("   ")
+  decoded_words = words.map do |word|
+    letters = word.split(" ")
+    decoded_letters = letters.map { |letter| @morse_table[letter] }
+    decoded_letters.join("")
+  end
+  decoded_words.join(" ")
+end
+
+# Example usage
+morse_str = ".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ..."
+decoded_str = decode_morse(morse_str)
+puts decoded_str
